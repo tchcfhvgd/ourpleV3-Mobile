@@ -72,6 +72,8 @@ class OurpleStoryState extends MusicBeatState
 
         super.create();
 
+	addTouchPad("UP_DOWN", "A_B");
+
     }
 
     override function update(elapsed:Float){
