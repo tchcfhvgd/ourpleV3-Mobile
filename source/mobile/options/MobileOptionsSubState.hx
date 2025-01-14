@@ -29,6 +29,10 @@ import options.Option;
 import sys.io.File;
 #end
 
+#if android
+import android.os.Build;
+#end
+
 class MobileOptionsSubState extends BaseOptionsMenu
 {
 	#if android
@@ -46,10 +50,6 @@ class MobileOptionsSubState extends BaseOptionsMenu
 			storageTypes = storageTypes.concat(externalPaths); #end
 		title = 'Mobile Options';
 		rpcTitle = 'Mobile Options Menu'; // for Discord Rich Presence, fuck it
-
-		option = new Option('Extra Controls', 'Select how many extra buttons you prefer to have?\nThey can be used for mechanics with LUA or HScript.',
-			'extraButtons', 'string', 'NONE', exControlTypes);
-		addOption(option);
 
 		option = new Option('Mobile Controls Opacity',
 			'Selects the opacity for the mobile buttons (careful not to put it at 0 and lose track of your buttons).', 'controlsAlpha', 'percent', 60);
@@ -82,9 +82,12 @@ class MobileOptionsSubState extends BaseOptionsMenu
 		}
 
 		#if android
+		if (VERSION.SDK_INT > 30)
+		{
 		option = new Option('Storage Type', 'Which folder Psych Engine should use?\n(CHANGING THIS MAKES DELETE YOUR OLD FOLDER!!)', 'storageType', 'string',
 			'EXTERNAL_DATA', storageTypes);
 		addOption(option);
+		}
 		#end
 
 		super();
