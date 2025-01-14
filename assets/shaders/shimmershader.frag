@@ -1,8 +1,5 @@
-
 #pragma header
-vec2 uv=openfl_TextureCoordv.xy;
-vec2 fragCoord=openfl_TextureCoordv*openfl_TextureSize;
-vec2 iResolution=openfl_TextureSize;
+
 uniform float iTime;
 #define iChannel0 bitmap
 #define texture texture2D
@@ -11,6 +8,8 @@ uniform float iTime;
 
 void mainImage()
 {
+vec2 fragCoord=openfl_TextureCoordv*openfl_TextureSize;
+vec2 iResolution=openfl_TextureSize;
 	vec2 uv = fragCoord.xy / iResolution.xy;
 
     float speed = 0.58;
@@ -32,4 +31,3 @@ void mainImage()
     // Merge texture + Glint
 	fragColor = t1 + ((s));
 }
-
