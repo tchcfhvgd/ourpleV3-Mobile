@@ -242,6 +242,8 @@ class CreditsSubstate extends MusicBeatSubstate
 			quitting=false;
 		});
 		super.create();
+
+		addTouchPad("UP_DOWN", "A_B");
 	}
 
 	var quitting:Bool = true;
