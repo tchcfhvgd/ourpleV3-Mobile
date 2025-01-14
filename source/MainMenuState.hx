@@ -250,6 +250,8 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		super.create();
+
+		addTouchPad("LEFT_RIGHT", "A_B");
 	}
 
 	#if ACHIEVEMENTS_ALLOWED
@@ -331,6 +333,7 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new AchievementsMenuState());
 									case 'credits':
 										openSubState(new CreditsSubstate());
+										touchPad.active = touchPad.visible = false;
 										
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
@@ -360,6 +363,8 @@ class MainMenuState extends MusicBeatState
 	override function closeSubState() {
 		selectedSomethin = false;
 		super.closeSubState();
+		removeTouchPad();
+		addTouchPad("LEFT_RIGHT", "A_B");
 	}
 
 	function changeItem(huh:Int = 0)
