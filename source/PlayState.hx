@@ -4177,7 +4177,9 @@ class PlayState extends MusicBeatState
 				coolwarp.setFloat('iTime',0.12);
 				stage.updateiTime.push(coolwarp);
 				addShader(coolwarp,'asd');
-				addShader(ntscShader);
+				#if desktop
+		        addShader(ntscShader);
+		        #end
 				defaultHudZoom = 0.9;
 				camHUD.zoom = 0.9;
 			case 'setNotePosition':
