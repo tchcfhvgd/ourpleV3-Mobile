@@ -244,6 +244,7 @@ class CreditsSubstate extends MusicBeatSubstate
 		super.create();
 
 		addTouchPad("UP_DOWN", "A_B");
+		addTouchPadCamera();
 	}
 
 	var quitting:Bool = true;
