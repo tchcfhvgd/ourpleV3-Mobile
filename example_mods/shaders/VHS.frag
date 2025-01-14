@@ -3,9 +3,7 @@
 //help from theleername!! :D
 
 #pragma header
-vec2 fragCoord = openfl_TextureCoordv*openfl_TextureSize;
-vec2 iResolution = openfl_TextureSize;
-vec2 uv = openfl_TextureCoordv.xy;
+
 uniform float iTime;
 
 #define time iTime
@@ -49,6 +47,9 @@ float noise( vec2 _v ){
 }
 
 void main() {
+  vec2 fragCoord = openfl_TextureCoordv*openfl_TextureSize;
+vec2 iResolution = openfl_TextureSize;
+vec2 uv = openfl_TextureCoordv.xy;
   if (active)
   {
   vec2 uvn = uv;
@@ -95,4 +96,3 @@ void main() {
 	gl_FragColor = vec4( tex2D(bitmap, uv), flixel_texture2D(bitmap, uv).a );
   }
 }
-
