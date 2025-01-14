@@ -53,7 +53,7 @@ import hscript.Interp;
 import hscript.Expr;
 #end
 
-#if desktop
+#if DISCORD_ALLOWED
 import Discord;
 #end
 
@@ -91,8 +91,8 @@ class FunkinLua {
 			var resultStr:String = Lua.tostring(lua, result);
 			if(resultStr != null && result != 0) {
 				trace('Error on lua script! ' + resultStr);
-				#if windows
-				lime.app.Application.current.window.alert(resultStr, 'Error on lua script!');
+				#if (desktop || mobile)
+				CoolUtil.showPopUp(resultStr, 'Error on lua script!');
 				#else
 				luaTrace('Error loading lua script: "$script"\n' + resultStr, true, false, FlxColor.RED);
 				#end
@@ -252,7 +252,7 @@ class FunkinLua {
 		});
 
 		// shader shit
-		Lua_helper.add_callback(lua, "initLuaShader", function(name:String, glslVersion:Int = 120) {
+		Lua_helper.add_callback(lua, "initLuaShader", function(name:String, glslVersion:Int = 100) {
 			if(!ClientPrefs.shaders) return false;
 
 			#if (!flash && MODS_ALLOWED && sys)
@@ -2919,7 +2919,7 @@ class FunkinLua {
 	}
 	#end
 	
-	function initLuaShader(name:String, ?glslVersion:Int = 120)
+	function initLuaShader(name:String, ?glslVersion:Int = 100)
 	{
 		if(!ClientPrefs.shaders) return false;
 
