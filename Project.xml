@@ -84,7 +84,7 @@
 		<assets path='example_mods' rename='mods' embed='false'/>
 	</section>
 
-	<assets path="assets/fonts" embed='true'/>
+	<assets path="assets/fonts" />
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />
