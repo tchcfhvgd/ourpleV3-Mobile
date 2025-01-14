@@ -97,7 +97,13 @@ class OptionsState extends MusicBeatState
 		spike.y = FlxG.height - spike.height;
 		spike.velocity.x = 40;
 		spikes.add(spike);
-
+			
+                var tipText:FlxText = new FlxText(150, FlxG.height - 24, 0, 'Press C to Go Mobile Controls Menu', 16);
+		tipText.setFormat("VCR OSD Mono", 17, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		tipText.borderSize = 1.25;
+		tipText.scrollFactor.set();
+		tipText.antialiasing = ClientPrefs.globalAntialiasing;
+		add(tipText);
 
 		grpOptions = new FlxTypedGroup<FlxText>();
 		add(grpOptions);
