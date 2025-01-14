@@ -109,6 +109,7 @@ class TitleState extends MusicBeatState
 			FlxG.signals.preStateSwitch.add(MusicBeatState.clearShaderData);
 			persistentUpdate = true;
 			persistentDraw = true;
+			mobile.MobileData.init();
 		}
 
 		if (FlxG.save.data.weekCompleted != null)
