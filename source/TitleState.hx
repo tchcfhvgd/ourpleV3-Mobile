@@ -57,7 +57,7 @@ class TitleState extends MusicBeatState
 
 	public static var initialized:Bool = false;
 
-	#if mac
+	#if (mac || mobile)
 	public static var funkinatfreddysExist:Bool = true;
 	#else
 	public static var funkinatfreddysExist:Bool = false;
@@ -94,9 +94,11 @@ class TitleState extends MusicBeatState
 
 		Highscore.load();
 
-		if (FileSystem.isDirectory(Sys.getEnv("AppData") + "/ourpleco/FunkinAtFreddys")) {
+		#if windows
+		if (FileSystem.isDirectory(Sys.getEnv("AppData") + "/shadowmario/FunkinAtFreddys")) {
 			funkinatfreddysExist = true; //checks if u played tghe mod before
 		}
+		#end
 
 		if(!initialized)
 		{
