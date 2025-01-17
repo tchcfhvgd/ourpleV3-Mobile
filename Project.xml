@@ -67,7 +67,7 @@
 	<section if="NO_PRELOAD_ALL">
 		<library name="songs"         preload="false" />
 		<library name="shared"        preload="false" />
-		<library name="ourplesecrets"        preload="false" />
+		<library name="ourplesecrets"        preload="true" />
 	</section>
 	
 	<assets path="assets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
