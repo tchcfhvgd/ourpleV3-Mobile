@@ -156,13 +156,11 @@ class CoolUtil
 
 	public static function showPopUp(message:String, title:String):Void
 	{
-		/*
 		#if android
 		android.Tools.showAlertDialog(title, message, {name: "OK", func: null}, null);
 		#else
-                */
 		FlxG.stage.window.alert(message, title);
-		//#end
+		#end
 	}
 
 	/** Quick Function to Fix Save Files for Flixel 5
