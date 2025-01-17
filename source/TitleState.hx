@@ -57,7 +57,7 @@ class TitleState extends MusicBeatState
 
 	public static var initialized:Bool = false;
 
-	#if mac
+	#if (mac || mobile)
 	public static var funkinatfreddysExist:Bool = true;
 	#else
 	public static var funkinatfreddysExist:Bool = false;
