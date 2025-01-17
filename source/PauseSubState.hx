@@ -165,7 +165,7 @@ class PauseSubState extends MusicBeatSubstate
 		}
 		var mouseX = FlxG.mouse.getPositionInCameraView(FlxG.cameras.list[FlxG.cameras.list.length - 1]).x;//overlap wasnt being nice
         var mouseY = FlxG.mouse.getPositionInCameraView(FlxG.cameras.list[FlxG.cameras.list.length - 1]).y;
-		if (pauseCharacter.yesFriend && FlxG.mouse.visible && FlxG.mouse.justPressed && (mouseY >= pauseCharacter.bfChar.y && mouseY <= (pauseCharacter.bfChar.y + pauseCharacter.bfChar.height) && mouseX >= pauseCharacter.bfChar.x && mouseX <= (pauseCharacter.bfChar.x+pauseCharacter.bfChar.width))) {
+		if (pauseCharacter.yesFriend && FlxG.mouse.justPressed && (mouseY >= pauseCharacter.bfChar.y && mouseY <= (pauseCharacter.bfChar.y + pauseCharacter.bfChar.height) && mouseX >= pauseCharacter.bfChar.x && mouseX <= (pauseCharacter.bfChar.x+pauseCharacter.bfChar.width))) {
 			trace('yes!');
 			FlxG.mouse.visible = false;
 			PlayState.instance.vocals.stop();
