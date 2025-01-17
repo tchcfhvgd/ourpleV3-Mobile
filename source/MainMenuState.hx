@@ -293,6 +293,7 @@ class MainMenuState extends MusicBeatState
 			if (controls.BACK)
 			{
 				selectedSomethin = true;
+				persistentUpdate = false;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
 			}
@@ -309,6 +310,7 @@ class MainMenuState extends MusicBeatState
 				else
 				{
 					selectedSomethin = true;
+					persistentUpdate = false;
 					FlxG.sound.play(Paths.sound('confirmMenu'));
 
 					//if(ClientPrefs.flashing) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
@@ -333,7 +335,7 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new AchievementsMenuState());
 									case 'credits':
 										openSubState(new CreditsSubstate());
-										touchPad.active = touchPad.visible = false;
+										touchPad.active = touchPad.visible = persistentUpdate = false;
 										
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
@@ -363,6 +365,7 @@ class MainMenuState extends MusicBeatState
 	override function closeSubState() {
 		selectedSomethin = false;
 		super.closeSubState();
+		persistentUpdate = true;
 		removeTouchPad();
 		addTouchPad("LEFT_RIGHT", "A_B");
 	}
