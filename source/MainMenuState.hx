@@ -335,7 +335,7 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new AchievementsMenuState());
 									case 'credits':
 										openSubState(new CreditsSubstate());
-										touchPad.active = touchPad.visible = persistentUpdate = false;
+										removeTouchPad();
 										
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
